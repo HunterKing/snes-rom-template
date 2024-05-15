@@ -1,3 +1,12 @@
+# Minimized LoRom Template
+(Thanks to pinobatch for the great template project!!!)
+
+Dissection of a complete lorom to create small demo applications for testing an emulator while maintaining a correctly formed header and alignment.
+
+Original README.MD follows.
+
+
+==============
 IF THIS FILE HAS NO LINE BREAKS:  View it in a web browser.  
 (Some text editors do not understand UNIX-style line breaks.)
 
