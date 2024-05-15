@@ -6,7 +6,6 @@
 .include "snes.inc"
 ;.include "global.inc"
 .smart
-.import resetstub, main, nmi_handler, irq_handler
 
 ; LoROM is mapped to $808000-$FFFFFF in 32K blocks,
 ; skipping a15 and a23. Most is mirrored down to $008000.
@@ -77,24 +76,12 @@ romname:
   .res 4  ; unused vectors
   ; clcxce mode vectors
   ; reset unused because reset switches to 6502 mode
-  .addr cop_handler, brk_handler, abort_handler
-  .addr nmistub, $FFFF, irq_handler
-  .res 4  ; more unused vectors
   ; 6502 mode vectors
   ; brk unused because 6502 mode uses irq handler and pushes the
   ; X flag clear for /IRQ or set for BRK
   .addr ecop_handler, $FFFF, eabort_handler
-  .addr enmi_handler, resetstub, eirq_handler
   
 .segment "CODE"
-
-; Jumping out of bank $00 is especially important if you're using
-; ROMSPEED_120NS.
-nmistub:
-  jml nmi_handler
-
-irqstub:
-  jml irq_handler
 
 ; Unused exception handlers
 cop_handler:
