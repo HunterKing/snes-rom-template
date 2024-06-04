@@ -38,7 +38,7 @@ endif
 wincwd := $(shell pwd | sed -e "s'/'\\\\\\\\'g")
 
 # .PHONY means these targets aren't actual filenames
-.PHONY: all run nocash-run spcrun dist clean
+.PHONY: all clean
 
 all: $(title).sfc
 
